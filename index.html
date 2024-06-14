@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --main-color: #346751;
+        }
+        
+        body {
+            margin-top: 6rem;
+            display: grid;
+            place-items: center;
+            background-color: #E0FBE2;
+        }
+        
+        .maindiv {
+            width: 50rem;
+            height: 50rem;
+            background-color: transparent;
+            border-top: 2rem solid var(--main-color);
+            border-radius: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 4.45rem;
+        }
+        
+        div {
+            width: 0.5rem;
+            height: 20rem;
+            background-color: var(--main-color);
+            position: relative;
+        }
+        
+        div::before {
+            position: absolute;
+            content: "";
+            left: -2.2rem;
+            top: 90%;
+            width: 5rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: var(--main-color);
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        }
+        /* Animation for left side ball */
+        
+        .maindiv div:first-child {
+            animation: left-side 2s linear infinite;
+            transform-origin: top left;
+        }
+        
+        @keyframes left-side {
+            0% {
+                rotate: 0deg;
+            }
+            25% {
+                rotate: 30deg;
+            }
+            50% {
+                rotate: 0deg;
+            }
+            100% {
+                rotate: 0deg;
+            }
+        }
+        /* Animation for right side ball */
+        
+        .maindiv div:last-child {
+            animation: right-side 2s linear 1s infinite;
+            transform-origin: top left;
+        }
+        
+        @keyframes right-side {
+            0% {
+                rotate: 0deg;
+            }
+            25% {
+                rotate: -30deg;
+            }
+            50% {
+                rotate: 0deg;
+            }
+            100% {
+                rotate: 0deg;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="maindiv">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</body>
+<script>
+    alert("Please click on volume button");
+
+    let firstDiv = document.querySelector(".maindiv").firstElementChild;
+
+    setInterval(() => {
+        firstDiv.innerHTML = `<audio src="sound.wav" autoplay ></audio>`;
+    }, 1200)
+</script>
+
+</html>
